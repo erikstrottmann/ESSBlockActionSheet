@@ -49,7 +49,7 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (self.cancelButtonIndex) {
+    if (buttonIndex == self.cancelButtonIndex) {
         self.cancelButtonBlock();
         
     } else if (buttonIndex == self.destructiveButtonIndex) {
