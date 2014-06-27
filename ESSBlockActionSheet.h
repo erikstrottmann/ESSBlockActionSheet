@@ -12,7 +12,8 @@
 /*
  * This action sheet serves as its own delegate. When a button is clicked, its
  * corresponding block is called. otherButtonTitles.count must equal
- * otherButtonBlocks.count. Blocks must not be null, though they can be empty.
+ * otherButtonBlocks.count. Blocks for buttons that exist must not be null,
+ * though they can be empty.
  */
 - (instancetype)initWithTitle:(NSString *)title
             cancelButtonTitle:(NSString *)cancelButtonTitle
