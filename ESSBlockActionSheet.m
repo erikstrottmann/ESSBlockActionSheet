@@ -17,6 +17,10 @@
 
 @implementation ESSBlockActionSheet
 
+- (instancetype)init{
+    return [self initWithTitle:nil cancelButtonItem:nil destructiveButtonItem:nil otherButtonItems:nil];
+}
+
 - (instancetype)initWithTitle:(NSString *)title
              cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
         destructiveButtonItem:(ESSBlockActionItem *)destructiveButtonItem
@@ -81,13 +85,13 @@
 - (void)addCancelButtonWithItem:(ESSBlockActionItem *)item
 {
     [self addButtonWithItem:item];
-    self.cancelButtonIndex = self.numberOfButtons;
+    self.cancelButtonIndex = self.numberOfButtons - 1;
 }
 
 - (void)addDestructiveButtonWithItem:(ESSBlockActionItem *)item
 {
     [self addButtonWithItem:item];
-    self.destructiveButtonIndex = self.numberOfButtons;
+    self.destructiveButtonIndex = self.numberOfButtons - 1;
 }
 
 #pragma mark - UIActionSheetDelegate
