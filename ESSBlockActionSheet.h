@@ -23,7 +23,7 @@
         destructiveButtonItem:(ESSBlockActionItem *)destructiveButtonItem
              otherButtonItems:(NSArray *)otherButtonItems;
 /**
- * Initialize an action sheet with a variable argument list of other button items.
+ * Initialize an action sheet with a nil-terminated list of other button items.
  */
 - (instancetype)initWithTitle:(NSString *)title
              cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
