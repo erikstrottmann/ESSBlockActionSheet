@@ -1,26 +1,23 @@
 //
 //  ESSBlockActionSheet.h
+//  ESSBlockActionSheet
 //
 //  Created by Erik Strottmann on 6/27/14.
 //  Copyright (c) 2014 Gr8Privacy. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "ESSBlockActionItem.h"
 
 @interface ESSBlockActionSheet : UIActionSheet <UIActionSheetDelegate>
 
-/*
- * This action sheet serves as its own delegate. When a button is clicked, its
- * corresponding block is called. otherButtonTitles.count must equal
- * otherButtonBlocks.count. Blocks for buttons that exist must not be null,
- * though they can be empty.
- */
 - (instancetype)initWithTitle:(NSString *)title
-            cancelButtonTitle:(NSString *)cancelButtonTitle
-            cancelButtonBlock:(void(^)())cancelButtonBlock
-       destructiveButtonTitle:(NSString *)destructiveButtonTitle
-       destructiveButtonBlock:(void(^)())destructiveButtonBlock
-            otherButtonTitles:(NSArray *)otherButtonTitles
-            otherButtonBlocks:(NSArray *)otherButtonBlocks;
+             cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
+        destructiveButtonItem:(ESSBlockActionItem *)destructiveButtonItem
+             otherButtonItems:(ESSBlockActionItem *)otherButtonItems, ...;
+
+- (void)addButtonWithItem:(ESSBlockActionItem *)item;
+- (void)addCancelButtonWithItem:(ESSBlockActionItem *)item;
+- (void)addDestructiveButtonWithItem:(ESSBlockActionItem *)item;
 
 @end
