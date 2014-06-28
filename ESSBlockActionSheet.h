@@ -14,7 +14,11 @@
 - (instancetype)initWithTitle:(NSString *)title
              cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
         destructiveButtonItem:(ESSBlockActionItem *)destructiveButtonItem
-             otherButtonItems:(ESSBlockActionItem *)otherButtonItems, ...;
+             otherButtonItems:(NSArray *)otherButtonItems;
+- (instancetype)initWithTitle:(NSString *)title
+             cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
+        destructiveButtonItem:(ESSBlockActionItem *)destructiveButtonItem
+             otherButtonItemList:(ESSBlockActionItem *)firstOtherButtonItem, ... NS_REQUIRES_NIL_TERMINATION;
 
 - (void)addButtonWithItem:(ESSBlockActionItem *)item;
 - (void)addCancelButtonWithItem:(ESSBlockActionItem *)item;

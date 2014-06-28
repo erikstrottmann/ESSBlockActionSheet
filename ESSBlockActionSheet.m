@@ -20,37 +20,56 @@
 - (instancetype)initWithTitle:(NSString *)title
              cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
         destructiveButtonItem:(ESSBlockActionItem *)destructiveButtonItem
-             otherButtonItems:(ESSBlockActionItem *)firstOtherButtonItem, ...
+             otherButtonItems:(NSArray *)otherButtonItems
 {
     self = [super initWithTitle:title
                        delegate:self
               cancelButtonTitle:nil
          destructiveButtonTitle:nil
               otherButtonTitles:nil];
+    
     if (self) {
-        NSMutableArray *buttonActionItems = [NSMutableArray array];
+        self.buttonActionItems = [NSMutableArray array];
+        
+        self.buttonActionItems = [NSMutableArray array];
         
         if (destructiveButtonItem) {
             [self addDestructiveButtonWithItem:destructiveButtonItem];
         }
         
-        va_list otherButtonItems;
-        va_start(otherButtonItems, firstOtherButtonItem);
-        for (ESSBlockActionItem *otherButtonItem = firstOtherButtonItem;
-                otherButtonItem != nil;
-                otherButtonItem = va_arg(otherButtonItems, ESSBlockActionItem *)) {
-            
+        for (ESSBlockActionItem *otherButtonItem in otherButtonItems) {
             [self addButtonWithItem:otherButtonItem];
         }
-        va_end(otherButtonItems);
         
         if (cancelButtonItem) {
             [self addCancelButtonWithItem:cancelButtonItem];
         }
-        
-        self.buttonActionItems = buttonActionItems;
     }
+    
     return self;
+}
+
+- (instancetype)initWithTitle:(NSString *)title
+             cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
+        destructiveButtonItem:(ESSBlockActionItem *)destructiveButtonItem
+             otherButtonItemList:(ESSBlockActionItem *)firstOtherButtonItem, ...
+{
+    NSMutableArray *otherButtonItemArray = [NSMutableArray array];
+    
+    va_list otherButtonItemList;
+    va_start(otherButtonItemList, firstOtherButtonItem);
+    for (ESSBlockActionItem *otherButtonItem = firstOtherButtonItem;
+         otherButtonItem != nil;
+         otherButtonItem = va_arg(otherButtonItemList, ESSBlockActionItem *)) {
+        
+        [otherButtonItemArray addObject:otherButtonItem];
+    }
+    va_end(otherButtonItemList);
+    
+    return [self initWithTitle:title
+              cancelButtonItem:cancelButtonItem
+         destructiveButtonItem:destructiveButtonItem
+              otherButtonItems:otherButtonItemArray];
 }
 
 - (void)addButtonWithItem:(ESSBlockActionItem *)item
