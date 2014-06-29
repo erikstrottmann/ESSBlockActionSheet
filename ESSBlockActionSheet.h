@@ -12,18 +12,17 @@
 @interface ESSBlockActionSheet : UIActionSheet <UIActionSheetDelegate>
 
 /**
- * Initialize an action sheet with no title or buttons, as its own delegate.
- */
-- (instancetype)init;
-/**
- * Initialize an action sheet with an NSArray of other button items.
+ * Initializes the action sheet with an NSArray of other button items, as well
+ * as the other specified parameters.
  */
 - (instancetype)initWithTitle:(NSString *)title
              cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
         destructiveButtonItem:(ESSBlockActionItem *)destructiveButtonItem
              otherButtonItems:(NSArray *)otherButtonItems;
 /**
- * Initialize an action sheet with a nil-terminated list of other button items.
+ * Initializes the action sheet with a nil-terminated list of other button
+ * items, as well as the other specified parameters.
+
  */
 - (instancetype)initWithTitle:(NSString *)title
              cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem

@@ -59,18 +59,18 @@ static NSString * const kCellReuseIdentifier = @"cellReuseIdentifier";
 - (void)presentActionSheet
 {
     NSString *title = @"Do something to this list.";
-    ESSBlockActionItem *cancelItem = [[ESSBlockActionItem alloc] initWithTitle:@"Cancel" block:^{
+    ESSBlockActionItem *cancelItem = [ESSBlockActionItem itemWithTitle:@"Cancel" block:^{
         NSLog(@"Cancel block called");
     }];
-    ESSBlockActionItem *destroyItem = [[ESSBlockActionItem alloc] initWithTitle:@"Delete Everything" block:^{
+    ESSBlockActionItem *destroyItem = [ESSBlockActionItem itemWithTitle:@"Delete Everything" block:^{
         self.objects = [NSMutableArray array];
         [self.tableView reloadData];
     }];
-    ESSBlockActionItem *foxItem = [[ESSBlockActionItem alloc] initWithTitle:@"Add \"Fox\" Row" block:^{
+    ESSBlockActionItem *foxItem = [ESSBlockActionItem itemWithTitle:@"Add \"Fox\" Row" block:^{
         [self.objects addObject:@"The quick brown fox jumps over the lazy dog."];
         [self.tableView reloadData];
     }];
-    ESSBlockActionItem *loremItem = [[ESSBlockActionItem alloc] initWithTitle:@"Add \"Lorem\" Row" block:^{
+    ESSBlockActionItem *loremItem = [ESSBlockActionItem itemWithTitle:@"Add \"Lorem\" Row" block:^{
         [self.objects addObject:@"Lorem ipsum dolor sit amet, consectetur adipisicing elit..."];
         [self.tableView reloadData];
     }];

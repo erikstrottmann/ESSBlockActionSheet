@@ -17,10 +17,6 @@
 
 @implementation ESSBlockActionSheet
 
-- (instancetype)init{
-    return [self initWithTitle:nil cancelButtonItem:nil destructiveButtonItem:nil otherButtonItems:nil];
-}
-
 - (instancetype)initWithTitle:(NSString *)title
              cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
         destructiveButtonItem:(ESSBlockActionItem *)destructiveButtonItem

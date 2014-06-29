@@ -16,4 +16,7 @@
 - (instancetype)initWithTitle:(NSString *)title block:(void (^)())block;
 - (instancetype)initWithTitle:(NSString *)title;
 
++ (instancetype)itemWithTitle:(NSString *)title block:(void (^)())block;
++ (instancetype)itemWithTitle:(NSString *)title;
+
 @end

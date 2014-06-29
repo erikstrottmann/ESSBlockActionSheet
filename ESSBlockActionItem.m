@@ -25,4 +25,14 @@
     return [self initWithTitle:title block:nil];
 }
 
++ (instancetype)itemWithTitle:(NSString *)title block:(void (^)())block
+{
+    return [[self alloc] initWithTitle:title block:block];
+}
+
++ (instancetype)itemWithTitle:(NSString *)title
+{
+    return [self itemWithTitle:title block:nil];
+}
+
 @end
