@@ -25,7 +25,7 @@ ESSBlockActionSheet *actionSheet = [[ESSBlockActionSheet alloc] initWithTitle:@"
 [actionSheet showInView:self.view];
 ```
 
-The appropriate block will be called when a button is clicked. Use `nil` for any property you don't want to include.
+The appropriate block will be called when a button is clicked. The cancel button block is also called when the action sheet is dismissed for another reason, like the user tapping any other view. Use `nil` for any property you don't want to include.
 
 You can also add buttons after initialization:
 
