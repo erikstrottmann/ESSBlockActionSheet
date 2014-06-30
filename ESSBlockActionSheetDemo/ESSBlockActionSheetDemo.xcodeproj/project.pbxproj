@@ -17,7 +17,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BB1F493D195F43CA00711BF0 /* ESSBlockActionSheetDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ESSBlockActionSheetDemo.app; path = "/Developer/ESSBlockActionSheet/ESSBlockActionSheetDemo/build/Debug-iphoneos/ESSBlockActionSheetDemo.app"; sourceTree = "<absolute>"; };
 		BB1F4941195F43CA00711BF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB1F4942195F43CA00711BF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BB1F4944195F43CA00711BF0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -33,6 +32,7 @@
 		BBF4B11A19610552005798E2 /* ESSButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSButtonItem.m; sourceTree = "<group>"; };
 		BBF4B11B19610552005798E2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BBF4B11C19610552005798E2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BBF74B601961081900148B9E /* ESSBlockActionSheetDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ESSBlockActionSheetDemo.app; path = "/Developer/clone/ESSBlockActionSheetDemo/build/Debug-iphoneos/ESSBlockActionSheetDemo.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +109,7 @@
 			);
 			name = ESSBlockActionSheetDemo;
 			productName = ESSBlockActionSheetDemo;
-			productReference = BB1F493D195F43CA00711BF0 /* ESSBlockActionSheetDemo.app */;
+			productReference = BBF74B601961081900148B9E /* ESSBlockActionSheetDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
