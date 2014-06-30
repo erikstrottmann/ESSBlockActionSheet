@@ -8,6 +8,7 @@
 
 #import "ESSBlockDemoTableViewController.h"
 #import "ESSBlockActionSheet.h"
+#import "ESSBlockAlertView.h"
 
 static NSString * const kCellReuseIdentifier = @"cellReuseIdentifier";
 
@@ -46,6 +47,12 @@ static NSString * const kCellReuseIdentifier = @"cellReuseIdentifier";
                                                                     action:@selector(presentActionSheet)];
     
     self.navigationItem.leftBarButtonItem = actionButton;
+    
+    UIBarButtonItem *alertButton = [[UIBarButtonItem alloc] initWithTitle:@"Alert!"
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(presentAlertView)];
+    self.navigationItem.rightBarButtonItem = alertButton;
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,9 +66,7 @@ static NSString * const kCellReuseIdentifier = @"cellReuseIdentifier";
 - (void)presentActionSheet
 {
     NSString *title = @"Do something to this list.";
-    ESSBlockActionItem *cancelItem = [ESSBlockActionItem itemWithTitle:@"Cancel" block:^{
-        NSLog(@"Cancel block called");
-    }];
+    ESSBlockActionItem *cancelItem = [ESSBlockActionItem itemWithTitle:@"Cancel"];
     ESSBlockActionItem *destroyItem = [ESSBlockActionItem itemWithTitle:@"Delete Everything" block:^{
         self.objects = [NSMutableArray array];
         [self.tableView reloadData];
@@ -70,16 +75,33 @@ static NSString * const kCellReuseIdentifier = @"cellReuseIdentifier";
         [self.objects addObject:@"The quick brown fox jumps over the lazy dog."];
         [self.tableView reloadData];
     }];
-    ESSBlockActionItem *loremItem = [ESSBlockActionItem itemWithTitle:@"Add \"Lorem\" Row" block:^{
-        [self.objects addObject:@"Lorem ipsum dolor sit amet, consectetur adipisicing elit..."];
+    ESSBlockActionItem *sphinxItem = [ESSBlockActionItem itemWithTitle:@"Add \"Sphinx\" Row" block:^{
+        [self.objects addObject:@"Sphinx of black quartz, judge my vow!"];
         [self.tableView reloadData];
     }];
     
     ESSBlockActionSheet *actionSheet = [[ESSBlockActionSheet alloc] initWithTitle:title
                                                                  cancelButtonItem:cancelItem
                                                             destructiveButtonItem:destroyItem
-                                                                 otherButtonItems:@[foxItem, loremItem]];
+                                                                 otherButtonItems:@[foxItem, sphinxItem]];
     [actionSheet showInView:self.view];
+}
+
+- (void)presentAlertView
+{
+    NSString *title = @"Add \"lorem\" row?";
+    NSString *message = @"This will add a line of pseudo-Latin to the list.";
+    ESSBlockActionItem *cancelItem = [ESSBlockActionItem itemWithTitle:@"Cancel"];
+    ESSBlockActionItem *acceptItem = [ESSBlockActionItem itemWithTitle:@"Add Row" block:^{
+        [self.objects addObject:@"Lorem ipsum dolor sit amet, consectetur adipisicing elit..."];
+        [self.tableView reloadData];
+    }];
+    
+    ESSBlockAlertView *alertView = [[ESSBlockAlertView alloc] initWithTitle:title
+                                                                    message:message
+                                                           cancelButtonItem:cancelItem
+                                                           otherButtonItems:@[acceptItem]];
+    [alertView show];
 }
 
 #pragma mark - Table view data source
