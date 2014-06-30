@@ -16,52 +16,13 @@
 		BBF4B11F19610552005798E2 /* ESSButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4B11A19610552005798E2 /* ESSButtonItem.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		BB1F494E195F43CA00711BF0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BB1F4935195F43CA00711BF0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BB1F493C195F43CA00711BF0;
-			remoteInfo = ESSBlockActionSheetDemo;
-		};
-		BB1F495D195F457500711BF0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BB1F4935195F43CA00711BF0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BB1F493C195F43CA00711BF0;
-			remoteInfo = ESSBlockActionSheetDemo;
-		};
-		BBBC26EF1960D2A9008F7048 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BB1F4935195F43CA00711BF0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BB1F493C195F43CA00711BF0;
-			remoteInfo = ESSBlockActionSheetDemo;
-		};
-		BBBC27011960FF5C008F7048 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BB1F4935195F43CA00711BF0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BB1F493C195F43CA00711BF0;
-			remoteInfo = ESSBlockActionSheetDemo;
-		};
-		BBF4B1221961055A005798E2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BB1F4935195F43CA00711BF0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BB1F493C195F43CA00711BF0;
-			remoteInfo = ESSBlockActionSheetDemo;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		BB1F493D195F43CA00711BF0 /* ESSBlockActionSheetDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESSBlockActionSheetDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB1F493D195F43CA00711BF0 /* ESSBlockActionSheetDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ESSBlockActionSheetDemo.app; path = "/Developer/ESSBlockActionSheet/ESSBlockActionSheetDemo/build/Debug-iphoneos/ESSBlockActionSheetDemo.app"; sourceTree = "<absolute>"; };
 		BB1F4941195F43CA00711BF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB1F4942195F43CA00711BF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BB1F4944195F43CA00711BF0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BB1F4945195F43CA00711BF0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BB1F4947195F43CA00711BF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BB1F494D195F43CA00711BF0 /* ESSBlockActionSheetDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ESSBlockActionSheetDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBC26EC1960D29C008F7048 /* ESSBlockDemoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSBlockDemoTableViewController.h; sourceTree = "<group>"; };
 		BBBC26ED1960D29C008F7048 /* ESSBlockDemoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSBlockDemoTableViewController.m; sourceTree = "<group>"; };
 		BBF4B11519610552005798E2 /* ESSBlockActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSBlockActionSheet.h; sourceTree = "<group>"; };
@@ -82,13 +43,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BB1F494A195F43CA00711BF0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -97,17 +51,7 @@
 			children = (
 				BBF4B11419610536005798E2 /* ESSBlockActionSheet */,
 				BB1F493F195F43CA00711BF0 /* ESSBlockActionSheetDemo */,
-				BB1F493E195F43CA00711BF0 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		BB1F493E195F43CA00711BF0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BB1F493D195F43CA00711BF0 /* ESSBlockActionSheetDemo.app */,
-				BB1F494D195F43CA00711BF0 /* ESSBlockActionSheetDemoTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		BB1F493F195F43CA00711BF0 /* ESSBlockActionSheetDemo */ = {
@@ -168,28 +112,6 @@
 			productReference = BB1F493D195F43CA00711BF0 /* ESSBlockActionSheetDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BB1F494C195F43CA00711BF0 /* ESSBlockActionSheetDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BB1F495A195F43CA00711BF0 /* Build configuration list for PBXNativeTarget "ESSBlockActionSheetDemoTests" */;
-			buildPhases = (
-				BB1F4949195F43CA00711BF0 /* Sources */,
-				BB1F494A195F43CA00711BF0 /* Frameworks */,
-				BB1F494B195F43CA00711BF0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BB1F494F195F43CA00711BF0 /* PBXTargetDependency */,
-				BB1F495E195F457500711BF0 /* PBXTargetDependency */,
-				BBBC26F01960D2A9008F7048 /* PBXTargetDependency */,
-				BBBC27021960FF5C008F7048 /* PBXTargetDependency */,
-				BBF4B1231961055A005798E2 /* PBXTargetDependency */,
-			);
-			name = ESSBlockActionSheetDemoTests;
-			productName = ESSBlockActionSheetDemoTests;
-			productReference = BB1F494D195F43CA00711BF0 /* ESSBlockActionSheetDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -202,10 +124,6 @@
 					BB1F493C195F43CA00711BF0 = {
 						CreatedOnToolsVersion = 6.0;
 					};
-					BB1F494C195F43CA00711BF0 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = BB1F493C195F43CA00711BF0;
-					};
 				};
 			};
 			buildConfigurationList = BB1F4938195F43CA00711BF0 /* Build configuration list for PBXProject "ESSBlockActionSheetDemo" */;
@@ -216,12 +134,11 @@
 				en,
 			);
 			mainGroup = BB1F4934195F43CA00711BF0;
-			productRefGroup = BB1F493E195F43CA00711BF0 /* Products */;
+			productRefGroup = BB1F4934195F43CA00711BF0;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				BB1F493C195F43CA00711BF0 /* ESSBlockActionSheetDemo */,
-				BB1F494C195F43CA00711BF0 /* ESSBlockActionSheetDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -232,13 +149,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB1F4948195F43CA00711BF0 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BB1F494B195F43CA00711BF0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,42 +168,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BB1F4949195F43CA00711BF0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BB1F494F195F43CA00711BF0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BB1F493C195F43CA00711BF0 /* ESSBlockActionSheetDemo */;
-			targetProxy = BB1F494E195F43CA00711BF0 /* PBXContainerItemProxy */;
-		};
-		BB1F495E195F457500711BF0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BB1F493C195F43CA00711BF0 /* ESSBlockActionSheetDemo */;
-			targetProxy = BB1F495D195F457500711BF0 /* PBXContainerItemProxy */;
-		};
-		BBBC26F01960D2A9008F7048 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BB1F493C195F43CA00711BF0 /* ESSBlockActionSheetDemo */;
-			targetProxy = BBBC26EF1960D2A9008F7048 /* PBXContainerItemProxy */;
-		};
-		BBBC27021960FF5C008F7048 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BB1F493C195F43CA00711BF0 /* ESSBlockActionSheetDemo */;
-			targetProxy = BBBC27011960FF5C008F7048 /* PBXContainerItemProxy */;
-		};
-		BBF4B1231961055A005798E2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BB1F493C195F43CA00711BF0 /* ESSBlockActionSheetDemo */;
-			targetProxy = BBF4B1221961055A005798E2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		BB1F4955195F43CA00711BF0 /* Debug */ = {
@@ -400,42 +275,6 @@
 			};
 			name = Release;
 		};
-		BB1F495B195F43CA00711BF0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ESSBlockActionSheetDemo.app/ESSBlockActionSheetDemo";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ESSBlockActionSheetDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		BB1F495C195F43CA00711BF0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ESSBlockActionSheetDemo.app/ESSBlockActionSheetDemo";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ESSBlockActionSheetDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -453,15 +292,6 @@
 			buildConfigurations = (
 				BB1F4958195F43CA00711BF0 /* Debug */,
 				BB1F4959195F43CA00711BF0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BB1F495A195F43CA00711BF0 /* Build configuration list for PBXNativeTarget "ESSBlockActionSheetDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BB1F495B195F43CA00711BF0 /* Debug */,
-				BB1F495C195F43CA00711BF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
