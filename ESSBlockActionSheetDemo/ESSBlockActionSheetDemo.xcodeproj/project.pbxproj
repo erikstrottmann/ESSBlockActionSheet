@@ -11,6 +11,9 @@
 		BB1F4946195F43CA00711BF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1F4945195F43CA00711BF0 /* AppDelegate.m */; };
 		BB1F4948195F43CA00711BF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB1F4947195F43CA00711BF0 /* Images.xcassets */; };
 		BBBC26EE1960D29C008F7048 /* ESSBlockDemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBC26ED1960D29C008F7048 /* ESSBlockDemoTableViewController.m */; };
+		BBF4B11D19610552005798E2 /* ESSBlockActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4B11619610552005798E2 /* ESSBlockActionSheet.m */; };
+		BBF4B11E19610552005798E2 /* ESSBlockAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4B11819610552005798E2 /* ESSBlockAlertView.m */; };
+		BBF4B11F19610552005798E2 /* ESSButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4B11A19610552005798E2 /* ESSButtonItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,13 @@
 			remoteGlobalIDString = BB1F493C195F43CA00711BF0;
 			remoteInfo = ESSBlockActionSheetDemo;
 		};
+		BBF4B1221961055A005798E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB1F4935195F43CA00711BF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB1F493C195F43CA00711BF0;
+			remoteInfo = ESSBlockActionSheetDemo;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +64,14 @@
 		BB1F494D195F43CA00711BF0 /* ESSBlockActionSheetDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ESSBlockActionSheetDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBC26EC1960D29C008F7048 /* ESSBlockDemoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSBlockDemoTableViewController.h; sourceTree = "<group>"; };
 		BBBC26ED1960D29C008F7048 /* ESSBlockDemoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSBlockDemoTableViewController.m; sourceTree = "<group>"; };
+		BBF4B11519610552005798E2 /* ESSBlockActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSBlockActionSheet.h; sourceTree = "<group>"; };
+		BBF4B11619610552005798E2 /* ESSBlockActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSBlockActionSheet.m; sourceTree = "<group>"; };
+		BBF4B11719610552005798E2 /* ESSBlockAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSBlockAlertView.h; sourceTree = "<group>"; };
+		BBF4B11819610552005798E2 /* ESSBlockAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSBlockAlertView.m; sourceTree = "<group>"; };
+		BBF4B11919610552005798E2 /* ESSButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSButtonItem.h; sourceTree = "<group>"; };
+		BBF4B11A19610552005798E2 /* ESSButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSButtonItem.m; sourceTree = "<group>"; };
+		BBF4B11B19610552005798E2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		BBF4B11C19610552005798E2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +95,7 @@
 		BB1F4934195F43CA00711BF0 = {
 			isa = PBXGroup;
 			children = (
+				BBF4B11419610536005798E2 /* ESSBlockActionSheet */,
 				BB1F493F195F43CA00711BF0 /* ESSBlockActionSheetDemo */,
 				BB1F493E195F43CA00711BF0 /* Products */,
 			);
@@ -111,6 +130,22 @@
 				BB1F4942195F43CA00711BF0 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BBF4B11419610536005798E2 /* ESSBlockActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				BBF4B11519610552005798E2 /* ESSBlockActionSheet.h */,
+				BBF4B11619610552005798E2 /* ESSBlockActionSheet.m */,
+				BBF4B11719610552005798E2 /* ESSBlockAlertView.h */,
+				BBF4B11819610552005798E2 /* ESSBlockAlertView.m */,
+				BBF4B11919610552005798E2 /* ESSButtonItem.h */,
+				BBF4B11A19610552005798E2 /* ESSButtonItem.m */,
+				BBF4B11B19610552005798E2 /* LICENSE */,
+				BBF4B11C19610552005798E2 /* README.md */,
+			);
+			name = ESSBlockActionSheet;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +183,7 @@
 				BB1F495E195F457500711BF0 /* PBXTargetDependency */,
 				BBBC26F01960D2A9008F7048 /* PBXTargetDependency */,
 				BBBC27021960FF5C008F7048 /* PBXTargetDependency */,
+				BBF4B1231961055A005798E2 /* PBXTargetDependency */,
 			);
 			name = ESSBlockActionSheetDemoTests;
 			productName = ESSBlockActionSheetDemoTests;
@@ -214,7 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB1F4946195F43CA00711BF0 /* AppDelegate.m in Sources */,
+				BBF4B11D19610552005798E2 /* ESSBlockActionSheet.m in Sources */,
+				BBF4B11E19610552005798E2 /* ESSBlockAlertView.m in Sources */,
 				BB1F4943195F43CA00711BF0 /* main.m in Sources */,
+				BBF4B11F19610552005798E2 /* ESSButtonItem.m in Sources */,
 				BBBC26EE1960D29C008F7048 /* ESSBlockDemoTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +287,11 @@
 			isa = PBXTargetDependency;
 			target = BB1F493C195F43CA00711BF0 /* ESSBlockActionSheetDemo */;
 			targetProxy = BBBC27011960FF5C008F7048 /* PBXContainerItemProxy */;
+		};
+		BBF4B1231961055A005798E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB1F493C195F43CA00711BF0 /* ESSBlockActionSheetDemo */;
+			targetProxy = BBF4B1221961055A005798E2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
