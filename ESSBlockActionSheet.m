@@ -17,6 +17,8 @@
 
 @implementation ESSBlockActionSheet
 
+#pragma mark - Initialization
+
 - (instancetype)initWithTitle:(NSString *)title
              cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
         destructiveButtonItem:(ESSBlockActionItem *)destructiveButtonItem
@@ -72,6 +74,8 @@
               otherButtonItems:otherButtonItemArray];
 }
 
+#pragma mark - Adding button items
+
 - (void)addButtonWithItem:(ESSBlockActionItem *)item
 {
     [self.buttonActionItems addObject:item];
@@ -88,6 +92,15 @@
 {
     [self addButtonWithItem:item];
     self.destructiveButtonIndex = self.numberOfButtons - 1;
+}
+
+#pragma mark - Dismissing the action sheet
+
+- (void)dismissWithClickedButtonItem:(ESSBlockActionItem *)buttonItem animated:(BOOL)animated
+{
+    if ([self.buttonActionItems containsObject:buttonItem]) {
+        [self dismissWithClickedButtonIndex:[self.buttonActionItems indexOfObject:buttonItem] animated:animated];
+    }
 }
 
 #pragma mark - UIActionSheetDelegate

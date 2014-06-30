@@ -33,4 +33,10 @@
 - (void)addCancelButtonWithItem:(ESSBlockActionItem *)item;
 - (void)addDestructiveButtonWithItem:(ESSBlockActionItem *)item;
 
+/**
+ * Dismiss the action sheet, calling the button item's block if the action sheet
+ * contains the button item.
+ */
+- (void)dismissWithClickedButtonItem:(ESSBlockActionItem *)buttonItem animated:(BOOL)animated;
+
 @end

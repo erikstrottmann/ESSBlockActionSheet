@@ -31,4 +31,10 @@
 - (void)addButtonWithItem:(ESSBlockActionItem *)item;
 - (void)addCancelButtonWithItem:(ESSBlockActionItem *)item;
 
+/**
+ * Dismiss the alert view, calling the button item's block if the alert view
+ * contains the button item.
+ */
+- (void)dismissWithClickedButtonItem:(ESSBlockActionItem *)buttonItem animated:(BOOL)animated;
+
 @end

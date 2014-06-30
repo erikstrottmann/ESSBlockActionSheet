@@ -17,6 +17,8 @@
 
 @implementation ESSBlockAlertView
 
+#pragma mark - Initialization
+
 - (instancetype)initWithTitle:(NSString *)title
                       message:(NSString *)message
              cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
@@ -69,6 +71,8 @@
               otherButtonItems:otherButtonItemArray];
 }
 
+#pragma mark - Adding button items
+
 - (void)addButtonWithItem:(ESSBlockActionItem *)item
 {
     [self.buttonActionItems addObject:item];
@@ -79,6 +83,15 @@
 {
     [self addButtonWithItem:item];
     self.cancelButtonIndex = self.buttonActionItems.count - 1;
+}
+
+#pragma mark - Dismissing the alert view
+
+- (void)dismissWithClickedButtonItem:(ESSBlockActionItem *)buttonItem animated:(BOOL)animated
+{
+    if ([self.buttonActionItems containsObject:buttonItem]) {
+        [self dismissWithClickedButtonIndex:[self.buttonActionItems indexOfObject:buttonItem] animated:animated];
+    }
 }
 
 #pragma mark - UIAlertViewDelegate
