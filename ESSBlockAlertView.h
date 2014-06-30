@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ESSBlockActionItem.h"
+#import "ESSButtonItem.h"
 
 @interface ESSBlockAlertView : UIAlertView <UIAlertViewDelegate>
 
@@ -17,7 +17,7 @@
  */
 - (instancetype)initWithTitle:(NSString *)title
                       message:(NSString *)message
-             cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
+             cancelButtonItem:(ESSButtonItem *)cancelButtonItem
              otherButtonItems:(NSArray *)otherButtonItems;
 /**
  * Initializes the alert view with a nil-terminated list of other button items,
@@ -25,16 +25,16 @@
  */
 - (instancetype)initWithTitle:(NSString *)title
                       message:(NSString *)message
-             cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
-          otherButtonItemList:(ESSBlockActionItem *)firstOtherButtonItem, ... NS_REQUIRES_NIL_TERMINATION;
+             cancelButtonItem:(ESSButtonItem *)cancelButtonItem
+          otherButtonItemList:(ESSButtonItem *)firstOtherButtonItem, ... NS_REQUIRES_NIL_TERMINATION;
 
-- (void)addButtonWithItem:(ESSBlockActionItem *)item;
-- (void)addCancelButtonWithItem:(ESSBlockActionItem *)item;
+- (void)addButtonWithItem:(ESSButtonItem *)item;
+- (void)addCancelButtonWithItem:(ESSButtonItem *)item;
 
 /**
  * Dismiss the alert view, calling the button item's block if the alert view
  * contains the button item.
  */
-- (void)dismissWithClickedButtonItem:(ESSBlockActionItem *)buttonItem animated:(BOOL)animated;
+- (void)dismissWithClickedButtonItem:(ESSButtonItem *)buttonItem animated:(BOOL)animated;
 
 @end

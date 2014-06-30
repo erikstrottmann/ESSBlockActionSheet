@@ -61,29 +61,29 @@ static NSString * const kCellReuseIdentifier = @"cellReuseIdentifier";
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Action sheet
+#pragma mark - Action sheet & alert view
 
 - (void)presentActionSheet
 {
     NSString *title = @"Do something to this list.";
-    ESSBlockActionItem *cancelItem = [ESSBlockActionItem itemWithTitle:@"Cancel"];
-    ESSBlockActionItem *destroyItem = [ESSBlockActionItem itemWithTitle:@"Delete Everything" block:^{
+    ESSButtonItem *cancelButtonItem = [ESSButtonItem itemWithTitle:@"Cancel"];
+    ESSButtonItem *destructiveButtonItem = [ESSButtonItem itemWithTitle:@"Delete Everything" block:^{
         self.objects = [NSMutableArray array];
         [self.tableView reloadData];
     }];
-    ESSBlockActionItem *foxItem = [ESSBlockActionItem itemWithTitle:@"Add \"Fox\" Row" block:^{
+    ESSButtonItem *foxButtonItem = [ESSButtonItem itemWithTitle:@"Add \"Fox\" Row" block:^{
         [self.objects addObject:@"The quick brown fox jumps over the lazy dog."];
         [self.tableView reloadData];
     }];
-    ESSBlockActionItem *sphinxItem = [ESSBlockActionItem itemWithTitle:@"Add \"Sphinx\" Row" block:^{
+    ESSButtonItem *sphinxButtonItem = [ESSButtonItem itemWithTitle:@"Add \"Sphinx\" Row" block:^{
         [self.objects addObject:@"Sphinx of black quartz, judge my vow!"];
         [self.tableView reloadData];
     }];
     
     ESSBlockActionSheet *actionSheet = [[ESSBlockActionSheet alloc] initWithTitle:title
-                                                                 cancelButtonItem:cancelItem
-                                                            destructiveButtonItem:destroyItem
-                                                                 otherButtonItems:@[foxItem, sphinxItem]];
+                                                                 cancelButtonItem:cancelButtonItem
+                                                            destructiveButtonItem:destructiveButtonItem
+                                                                 otherButtonItems:@[foxButtonItem, sphinxButtonItem]];
     [actionSheet showInView:self.view];
 }
 
@@ -91,16 +91,16 @@ static NSString * const kCellReuseIdentifier = @"cellReuseIdentifier";
 {
     NSString *title = @"Add \"lorem\" row?";
     NSString *message = @"This will add a line of pseudo-Latin to the list.";
-    ESSBlockActionItem *cancelItem = [ESSBlockActionItem itemWithTitle:@"Cancel"];
-    ESSBlockActionItem *acceptItem = [ESSBlockActionItem itemWithTitle:@"Add Row" block:^{
+    ESSButtonItem *cancelButtonItem = [ESSButtonItem itemWithTitle:@"Cancel"];
+    ESSButtonItem *acceptButtonItem = [ESSButtonItem itemWithTitle:@"Add Row" block:^{
         [self.objects addObject:@"Lorem ipsum dolor sit amet, consectetur adipisicing elit..."];
         [self.tableView reloadData];
     }];
     
     ESSBlockAlertView *alertView = [[ESSBlockAlertView alloc] initWithTitle:title
                                                                     message:message
-                                                           cancelButtonItem:cancelItem
-                                                           otherButtonItems:@[acceptItem]];
+                                                           cancelButtonItem:cancelButtonItem
+                                                           otherButtonItems:@[acceptButtonItem]];
     [alertView show];
 }
 

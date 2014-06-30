@@ -1,14 +1,16 @@
 //
-//  ESSBlockActionItem.m
+//  ESSButtonItem.m
 //  ESSBlockActionSheet
 //
 //  Created by Erik Strottmann on 6/28/14.
 //  Copyright (c) 2014 Erik Strottmann. All rights reserved.
 //
 
-#import "ESSBlockActionItem.h"
+#import "ESSButtonItem.h"
 
-@implementation ESSBlockActionItem
+@implementation ESSButtonItem
+
+#pragma mark - Initialization
 
 - (instancetype)initWithTitle:(NSString *)title block:(void (^)())block
 {
@@ -24,6 +26,8 @@
 {
     return [self initWithTitle:title block:nil];
 }
+
+#pragma mark - Factory methods
 
 + (instancetype)itemWithTitle:(NSString *)title block:(void (^)())block
 {

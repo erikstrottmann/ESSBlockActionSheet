@@ -21,7 +21,7 @@
 
 - (instancetype)initWithTitle:(NSString *)title
                       message:(NSString *)message
-             cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
+             cancelButtonItem:(ESSButtonItem *)cancelButtonItem
              otherButtonItems:(NSArray *)otherButtonItems
 {
     self = [super initWithTitle:title
@@ -39,7 +39,7 @@
             [self addCancelButtonWithItem:cancelButtonItem];
         }
         
-        for (ESSBlockActionItem *otherButtonItem in otherButtonItems) {
+        for (ESSButtonItem *otherButtonItem in otherButtonItems) {
             [self addButtonWithItem:otherButtonItem];
         }
         
@@ -50,16 +50,16 @@
 
 - (instancetype)initWithTitle:(NSString *)title
                       message:(NSString *)message
-             cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
-          otherButtonItemList:(ESSBlockActionItem *)firstOtherButtonItem, ...
+             cancelButtonItem:(ESSButtonItem *)cancelButtonItem
+          otherButtonItemList:(ESSButtonItem *)firstOtherButtonItem, ...
 {
     NSMutableArray *otherButtonItemArray = [NSMutableArray array];
     
     va_list otherButtonItemList;
     va_start(otherButtonItemList, firstOtherButtonItem);
-    for (ESSBlockActionItem *otherButtonItem = firstOtherButtonItem;
+    for (ESSButtonItem *otherButtonItem = firstOtherButtonItem;
          otherButtonItem != nil;
-         otherButtonItem = va_arg(otherButtonItemList, ESSBlockActionItem *)) {
+         otherButtonItem = va_arg(otherButtonItemList, ESSButtonItem *)) {
         
         [otherButtonItemArray addObject:otherButtonItem];
     }
@@ -73,13 +73,13 @@
 
 #pragma mark - Adding button items
 
-- (void)addButtonWithItem:(ESSBlockActionItem *)item
+- (void)addButtonWithItem:(ESSButtonItem *)item
 {
     [self.buttonActionItems addObject:item];
     [self addButtonWithTitle:item.title];
 }
 
-- (void)addCancelButtonWithItem:(ESSBlockActionItem *)item
+- (void)addCancelButtonWithItem:(ESSButtonItem *)item
 {
     [self addButtonWithItem:item];
     self.cancelButtonIndex = self.buttonActionItems.count - 1;
@@ -87,7 +87,7 @@
 
 #pragma mark - Dismissing the alert view
 
-- (void)dismissWithClickedButtonItem:(ESSBlockActionItem *)buttonItem animated:(BOOL)animated
+- (void)dismissWithClickedButtonItem:(ESSButtonItem *)buttonItem animated:(BOOL)animated
 {
     if ([self.buttonActionItems containsObject:buttonItem]) {
         [self dismissWithClickedButtonIndex:[self.buttonActionItems indexOfObject:buttonItem] animated:animated];
@@ -99,7 +99,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex >= 0 && buttonIndex < self.buttonActionItems.count) {
-        ESSBlockActionItem *buttonActionItem = self.buttonActionItems[buttonIndex];
+        ESSButtonItem *buttonActionItem = self.buttonActionItems[buttonIndex];
         if (buttonActionItem.block) {
             buttonActionItem.block();
         }

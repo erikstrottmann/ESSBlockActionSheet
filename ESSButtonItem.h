@@ -1,5 +1,5 @@
 //
-//  ESSBlockActionItem.h
+//  ESSButtonItem.h
 //  ESSBlockActionSheet
 //
 //  Created by Erik Strottmann on 6/28/14.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ESSBlockActionItem : NSObject
+@interface ESSButtonItem : NSObject
 
 @property (strong, nonatomic) NSString *title;
 @property (copy, nonatomic) void (^block)();

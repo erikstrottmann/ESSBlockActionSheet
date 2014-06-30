@@ -20,8 +20,8 @@
 #pragma mark - Initialization
 
 - (instancetype)initWithTitle:(NSString *)title
-             cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
-        destructiveButtonItem:(ESSBlockActionItem *)destructiveButtonItem
+             cancelButtonItem:(ESSButtonItem *)cancelButtonItem
+        destructiveButtonItem:(ESSButtonItem *)destructiveButtonItem
              otherButtonItems:(NSArray *)otherButtonItems
 {
     self = [super initWithTitle:title
@@ -39,7 +39,7 @@
             [self addDestructiveButtonWithItem:destructiveButtonItem];
         }
         
-        for (ESSBlockActionItem *otherButtonItem in otherButtonItems) {
+        for (ESSButtonItem *otherButtonItem in otherButtonItems) {
             [self addButtonWithItem:otherButtonItem];
         }
         
@@ -52,17 +52,17 @@
 }
 
 - (instancetype)initWithTitle:(NSString *)title
-             cancelButtonItem:(ESSBlockActionItem *)cancelButtonItem
-        destructiveButtonItem:(ESSBlockActionItem *)destructiveButtonItem
-             otherButtonItemList:(ESSBlockActionItem *)firstOtherButtonItem, ...
+             cancelButtonItem:(ESSButtonItem *)cancelButtonItem
+        destructiveButtonItem:(ESSButtonItem *)destructiveButtonItem
+             otherButtonItemList:(ESSButtonItem *)firstOtherButtonItem, ...
 {
     NSMutableArray *otherButtonItemArray = [NSMutableArray array];
     
     va_list otherButtonItemList;
     va_start(otherButtonItemList, firstOtherButtonItem);
-    for (ESSBlockActionItem *otherButtonItem = firstOtherButtonItem;
+    for (ESSButtonItem *otherButtonItem = firstOtherButtonItem;
          otherButtonItem != nil;
-         otherButtonItem = va_arg(otherButtonItemList, ESSBlockActionItem *)) {
+         otherButtonItem = va_arg(otherButtonItemList, ESSButtonItem *)) {
         
         [otherButtonItemArray addObject:otherButtonItem];
     }
@@ -76,19 +76,19 @@
 
 #pragma mark - Adding button items
 
-- (void)addButtonWithItem:(ESSBlockActionItem *)item
+- (void)addButtonWithItem:(ESSButtonItem *)item
 {
     [self.buttonActionItems addObject:item];
     [self addButtonWithTitle:item.title];
 }
 
-- (void)addCancelButtonWithItem:(ESSBlockActionItem *)item
+- (void)addCancelButtonWithItem:(ESSButtonItem *)item
 {
     [self addButtonWithItem:item];
     self.cancelButtonIndex = self.numberOfButtons - 1;
 }
 
-- (void)addDestructiveButtonWithItem:(ESSBlockActionItem *)item
+- (void)addDestructiveButtonWithItem:(ESSButtonItem *)item
 {
     [self addButtonWithItem:item];
     self.destructiveButtonIndex = self.numberOfButtons - 1;
@@ -96,7 +96,7 @@
 
 #pragma mark - Dismissing the action sheet
 
-- (void)dismissWithClickedButtonItem:(ESSBlockActionItem *)buttonItem animated:(BOOL)animated
+- (void)dismissWithClickedButtonItem:(ESSButtonItem *)buttonItem animated:(BOOL)animated
 {
     if ([self.buttonActionItems containsObject:buttonItem]) {
         [self dismissWithClickedButtonIndex:[self.buttonActionItems indexOfObject:buttonItem] animated:animated];
@@ -108,7 +108,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex >= 0 && buttonIndex < self.buttonActionItems.count) {
-        ESSBlockActionItem *buttonActionItem = self.buttonActionItems[buttonIndex];
+        ESSButtonItem *buttonActionItem = self.buttonActionItems[buttonIndex];
         if (buttonActionItem.block) {
             buttonActionItem.block();
         }
