@@ -35,6 +35,13 @@
 			remoteGlobalIDString = BB1F493C195F43CA00711BF0;
 			remoteInfo = ESSBlockActionSheetDemo;
 		};
+		BBBC27011960FF5C008F7048 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB1F4935195F43CA00711BF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB1F493C195F43CA00711BF0;
+			remoteInfo = ESSBlockActionSheetDemo;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +147,7 @@
 				BB1F494F195F43CA00711BF0 /* PBXTargetDependency */,
 				BB1F495E195F457500711BF0 /* PBXTargetDependency */,
 				BBBC26F01960D2A9008F7048 /* PBXTargetDependency */,
+				BBBC27021960FF5C008F7048 /* PBXTargetDependency */,
 			);
 			name = ESSBlockActionSheetDemoTests;
 			productName = ESSBlockActionSheetDemoTests;
@@ -235,6 +243,11 @@
 			isa = PBXTargetDependency;
 			target = BB1F493C195F43CA00711BF0 /* ESSBlockActionSheetDemo */;
 			targetProxy = BBBC26EF1960D2A9008F7048 /* PBXContainerItemProxy */;
+		};
+		BBBC27021960FF5C008F7048 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB1F493C195F43CA00711BF0 /* ESSBlockActionSheetDemo */;
+			targetProxy = BBBC27011960FF5C008F7048 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
