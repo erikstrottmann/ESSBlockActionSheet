@@ -22,6 +22,7 @@
 		BB1F4944195F43CA00711BF0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BB1F4945195F43CA00711BF0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BB1F4947195F43CA00711BF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BB92F1E819634FAC00340736 /* ESSBlockActionSheetDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESSBlockActionSheetDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBC26EC1960D29C008F7048 /* ESSBlockDemoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSBlockDemoTableViewController.h; sourceTree = "<group>"; };
 		BBBC26ED1960D29C008F7048 /* ESSBlockDemoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSBlockDemoTableViewController.m; sourceTree = "<group>"; };
 		BBF4B11519610552005798E2 /* ESSBlockActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSBlockActionSheet.h; sourceTree = "<group>"; };
@@ -32,7 +33,6 @@
 		BBF4B11A19610552005798E2 /* ESSButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSButtonItem.m; sourceTree = "<group>"; };
 		BBF4B11B19610552005798E2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BBF4B11C19610552005798E2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		BBF74B601961081900148B9E /* ESSBlockActionSheetDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ESSBlockActionSheetDemo.app; path = "/Developer/clone/ESSBlockActionSheetDemo/build/Debug-iphoneos/ESSBlockActionSheetDemo.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +63,7 @@
 				BBBC26ED1960D29C008F7048 /* ESSBlockDemoTableViewController.m */,
 				BB1F4947195F43CA00711BF0 /* Images.xcassets */,
 				BB1F4940195F43CA00711BF0 /* Supporting Files */,
+				BB92F1E919634FB200340736 /* Products */,
 			);
 			path = ESSBlockActionSheetDemo;
 			sourceTree = "<group>";
@@ -74,6 +75,15 @@
 				BB1F4942195F43CA00711BF0 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BB92F1E919634FB200340736 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB92F1E819634FAC00340736 /* ESSBlockActionSheetDemo.app */,
+			);
+			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		BBF4B11419610536005798E2 /* ESSBlockActionSheet */ = {
@@ -109,7 +119,7 @@
 			);
 			name = ESSBlockActionSheetDemo;
 			productName = ESSBlockActionSheetDemo;
-			productReference = BBF74B601961081900148B9E /* ESSBlockActionSheetDemo.app */;
+			productReference = BB92F1E819634FAC00340736 /* ESSBlockActionSheetDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
