@@ -24,7 +24,7 @@ You'll present the action sheet differently depending on the device you're runni
 
 ```
 BOOL onPhone = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
-if (onPhone) {  // on iPhone
+if (onPhone) { // on iPhone
     [actionSheet showInView:self.view];
 } else { // on iPad
     [actionSheet showFromRect:self.view.bounds inView:self.view animated:YES];

@@ -121,12 +121,12 @@ static NSString * const kCellReuseIdentifier = @"cellReuseIdentifier";
     [actionSheet addAction:sphinxAction];
     
     // Finally, present the action sheet:
-    [actionSheet showInView:self.view]; // iPhone
-    /*
-     [actionSheet showFromRect:self.view.bounds // iPad
-     inView:self.view
-     animated:YES];
-     */
+    BOOL onPhone = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
+    if (onPhone) { // on iPhone
+        [actionSheet showInView:self.view];
+    } else { // on iPad
+        [actionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
+    }
 }
 
 /*
