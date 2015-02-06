@@ -4,7 +4,7 @@
 // 
 // Created by Erik Strottmann on 6/27/14.
 // 
-// Copyright (c) 2014 Erik Strottmann
+// Copyright (c) 2014-2015 Erik Strottmann
 // Licensed under the MIT License:
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,36 +26,34 @@
 // SOFTWARE.
 
 #import <UIKit/UIKit.h>
-#import "ESSButtonItem.h"
+#import "ESSAlertAction.h"
 
 @interface ESSBlockActionSheet : UIActionSheet <UIActionSheetDelegate>
 
-/**
- * Initializes the action sheet with an NSArray of other button items, as well
- * as the other specified parameters.
- */
-- (instancetype)initWithTitle:(NSString *)title
-             cancelButtonItem:(ESSButtonItem *)cancelButtonItem
-        destructiveButtonItem:(ESSButtonItem *)destructiveButtonItem
-             otherButtonItems:(NSArray *)otherButtonItems;
-/**
- * Initializes the action sheet with a nil-terminated list of other button
- * items, as well as the other specified parameters.
-
- */
-- (instancetype)initWithTitle:(NSString *)title
-             cancelButtonItem:(ESSButtonItem *)cancelButtonItem
-        destructiveButtonItem:(ESSButtonItem *)destructiveButtonItem
-             otherButtonItemList:(ESSButtonItem *)firstOtherButtonItem, ... NS_REQUIRES_NIL_TERMINATION;
-
-- (void)addButtonWithItem:(ESSButtonItem *)item;
-- (void)addCancelButtonWithItem:(ESSButtonItem *)item;
-- (void)addDestructiveButtonWithItem:(ESSButtonItem *)item;
+#pragma mark - Creating an action sheet
 
 /**
- * Dismiss the action sheet, calling the button item's block if the action sheet
- * contains the button item.
+ * Creates and returns a new action sheet with a title and no actions.
  */
-- (void)dismissWithClickedButtonItem:(ESSButtonItem *)buttonItem animated:(BOOL)animated;
++ (instancetype)actionSheetWithTitle:(NSString *)title;
+
+#pragma mark - Adding actions
+
+/**
+ * Adds an action with the default style.
+ */
+- (void)addAction:(ESSAlertAction *)action;
+/**
+ * Adds an action with a style that indicates the action cancels the operation
+ * and leaves things unchanged. An action sheet can only have one cancel item,
+ * so only the last cancel item added will be in the cancel style.
+ */
+- (void)addCancelAction:(ESSAlertAction *)action;
+/**
+ * Adds an action with a style that indicates the action might change or delete
+ * data. An action sheet can only have one destructive item, so only the last
+ * destructive item added will be in the destructive style.
+ */
+- (void)addDestructiveAction:(ESSAlertAction *)action;
 
 @end

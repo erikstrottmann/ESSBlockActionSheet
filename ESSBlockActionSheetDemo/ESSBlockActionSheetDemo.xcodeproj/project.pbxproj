@@ -13,7 +13,7 @@
 		BBBC26EE1960D29C008F7048 /* ESSBlockDemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBC26ED1960D29C008F7048 /* ESSBlockDemoTableViewController.m */; };
 		BBF4B11D19610552005798E2 /* ESSBlockActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4B11619610552005798E2 /* ESSBlockActionSheet.m */; };
 		BBF4B11E19610552005798E2 /* ESSBlockAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4B11819610552005798E2 /* ESSBlockAlertView.m */; };
-		BBF4B11F19610552005798E2 /* ESSButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4B11A19610552005798E2 /* ESSButtonItem.m */; };
+		BBF4B11F19610552005798E2 /* ESSAlertAction.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4B11A19610552005798E2 /* ESSAlertAction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +29,8 @@
 		BBF4B11619610552005798E2 /* ESSBlockActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSBlockActionSheet.m; sourceTree = "<group>"; };
 		BBF4B11719610552005798E2 /* ESSBlockAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSBlockAlertView.h; sourceTree = "<group>"; };
 		BBF4B11819610552005798E2 /* ESSBlockAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSBlockAlertView.m; sourceTree = "<group>"; };
-		BBF4B11919610552005798E2 /* ESSButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSButtonItem.h; sourceTree = "<group>"; };
-		BBF4B11A19610552005798E2 /* ESSButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSButtonItem.m; sourceTree = "<group>"; };
+		BBF4B11919610552005798E2 /* ESSAlertAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSAlertAction.h; sourceTree = "<group>"; };
+		BBF4B11A19610552005798E2 /* ESSAlertAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSAlertAction.m; sourceTree = "<group>"; };
 		BBF4B11B19610552005798E2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BBF4B11C19610552005798E2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,8 +93,8 @@
 				BBF4B11619610552005798E2 /* ESSBlockActionSheet.m */,
 				BBF4B11719610552005798E2 /* ESSBlockAlertView.h */,
 				BBF4B11819610552005798E2 /* ESSBlockAlertView.m */,
-				BBF4B11919610552005798E2 /* ESSButtonItem.h */,
-				BBF4B11A19610552005798E2 /* ESSButtonItem.m */,
+				BBF4B11919610552005798E2 /* ESSAlertAction.h */,
+				BBF4B11A19610552005798E2 /* ESSAlertAction.m */,
 				BBF4B11B19610552005798E2 /* LICENSE */,
 				BBF4B11C19610552005798E2 /* README.md */,
 			);
@@ -173,7 +173,7 @@
 				BBF4B11D19610552005798E2 /* ESSBlockActionSheet.m in Sources */,
 				BBF4B11E19610552005798E2 /* ESSBlockAlertView.m in Sources */,
 				BB1F4943195F43CA00711BF0 /* main.m in Sources */,
-				BBF4B11F19610552005798E2 /* ESSButtonItem.m in Sources */,
+				BBF4B11F19610552005798E2 /* ESSAlertAction.m in Sources */,
 				BBBC26EE1960D29C008F7048 /* ESSBlockDemoTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,10 +1,10 @@
-// 
-// ESSButtonItem.h
+//
+// ESSAlertAction.m
 // ESSBlockActionSheet
 // 
 // Created by Erik Strottmann on 6/28/14.
 // 
-// Copyright (c) 2014 Erik Strottmann
+// Copyright (c) 2014-2015 Erik Strottmann
 // Licensed under the MIT License:
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,17 +25,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import "ESSAlertAction.h"
 
-@interface ESSButtonItem : NSObject
+@implementation ESSAlertAction
 
-@property (strong, nonatomic) NSString *title;
-@property (copy, nonatomic) void (^block)();
+#pragma mark - Factory methods
 
-- (instancetype)initWithTitle:(NSString *)title block:(void (^)())block;
-- (instancetype)initWithTitle:(NSString *)title;
-
-+ (instancetype)itemWithTitle:(NSString *)title block:(void (^)())block;
-+ (instancetype)itemWithTitle:(NSString *)title;
++ (instancetype)actionWithTitle:(NSString *)title
+                        block:(void (^)())block
+{
+    ESSAlertAction *action = [[self alloc] init];
+    
+    if (action) {
+        action.title = title;
+        action.block = block;
+    }
+    
+    return action;
+}
 
 @end

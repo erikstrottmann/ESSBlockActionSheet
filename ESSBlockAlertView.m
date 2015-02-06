@@ -4,7 +4,7 @@
 // 
 // Created by Erik Strottmann on 6/29/14.
 // 
-// Copyright (c) 2014 Erik Strottmann
+// Copyright (c) 2014-2015 Erik Strottmann
 // Licensed under the MIT License:
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,98 +29,51 @@
 
 @interface ESSBlockAlertView ()
 
-@property (nonatomic) NSMutableArray *buttonActionItems;
+@property (nonatomic) NSMutableArray *actions;
 
 @end
 
 
 @implementation ESSBlockAlertView
 
-#pragma mark - Initialization
+#pragma mark - Creating an alert view
 
-- (instancetype)initWithTitle:(NSString *)title
-                      message:(NSString *)message
-             cancelButtonItem:(ESSButtonItem *)cancelButtonItem
-             otherButtonItems:(NSArray *)otherButtonItems
++ (instancetype)alertViewWithTitle:(NSString *)title
+                           message:(NSString *)message
 {
-    self = [super initWithTitle:title
-                        message:message
-                       delegate:self
-              cancelButtonTitle:nil
-              otherButtonTitles:nil];
+    ESSBlockAlertView *alertView = [[super alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:nil];
+    alertView.delegate = alertView;
+    alertView.actions = [NSMutableArray array];
     
-    if (self) {
-        self.buttonActionItems = [NSMutableArray array];
-        
-        self.buttonActionItems = [NSMutableArray array];
-        
-        if (cancelButtonItem) {
-            [self addCancelButtonWithItem:cancelButtonItem];
-        }
-        
-        for (ESSButtonItem *otherButtonItem in otherButtonItems) {
-            [self addButtonWithItem:otherButtonItem];
-        }
-        
-    }
-    
-    return self;
+    return alertView;
 }
 
-- (instancetype)initWithTitle:(NSString *)title
-                      message:(NSString *)message
-             cancelButtonItem:(ESSButtonItem *)cancelButtonItem
-          otherButtonItemList:(ESSButtonItem *)firstOtherButtonItem, ...
-{
-    NSMutableArray *otherButtonItemArray = [NSMutableArray array];
-    
-    va_list otherButtonItemList;
-    va_start(otherButtonItemList, firstOtherButtonItem);
-    for (ESSButtonItem *otherButtonItem = firstOtherButtonItem;
-         otherButtonItem != nil;
-         otherButtonItem = va_arg(otherButtonItemList, ESSButtonItem *)) {
-        
-        [otherButtonItemArray addObject:otherButtonItem];
-    }
-    va_end(otherButtonItemList);
-    
-    return [self initWithTitle:title
-                       message:message
-              cancelButtonItem:cancelButtonItem
-              otherButtonItems:otherButtonItemArray];
-}
+#pragma mark - Adding actions
 
-#pragma mark - Adding button items
-
-- (void)addButtonWithItem:(ESSButtonItem *)item
+- (void)addAction:(ESSAlertAction *)item
 {
-    [self.buttonActionItems addObject:item];
+    [self.actions addObject:item];
     [self addButtonWithTitle:item.title];
 }
 
-- (void)addCancelButtonWithItem:(ESSButtonItem *)item
+- (void)addCancelAction:(ESSAlertAction *)item
 {
-    [self addButtonWithItem:item];
-    self.cancelButtonIndex = self.buttonActionItems.count - 1;
+    [self addAction:item];
+    self.cancelButtonIndex = self.actions.count - 1;
 }
 
-#pragma mark - Dismissing the alert view
-
-- (void)dismissWithClickedButtonItem:(ESSButtonItem *)buttonItem animated:(BOOL)animated
-{
-    if ([self.buttonActionItems containsObject:buttonItem]) {
-        [self dismissWithClickedButtonIndex:[self.buttonActionItems indexOfObject:buttonItem] animated:animated];
-    }
-}
-
-#pragma mark - UIAlertViewDelegate
+#pragma mark - Handling button taps
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex >= 0 && buttonIndex < self.buttonActionItems.count) {
-        ESSButtonItem *buttonActionItem = self.buttonActionItems[buttonIndex];
-        if (buttonActionItem.block) {
-            buttonActionItem.block();
+    if (buttonIndex >= 0 && buttonIndex < self.actions.count) {
+        ESSAlertAction *action = self.actions[buttonIndex];
+        if (action.block) {
+            action.block();
         }
     }
 }

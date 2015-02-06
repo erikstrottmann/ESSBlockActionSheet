@@ -4,7 +4,7 @@
 // 
 // Created by Erik Strottmann on 6/28/14.
 //  
-// Copyright (c) 2014 Erik Strottmann
+// Copyright (c) 2014-2015 Erik Strottmann
 // Licensed under the MIT License:
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -54,17 +54,10 @@ static NSString * const kCellReuseIdentifier = @"cellReuseIdentifier";
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithTitle:@"Action!"
                                                                      style:UIBarButtonItemStylePlain
                                                                     target:self
                                                                     action:@selector(presentActionSheet)];
-    
     self.navigationItem.leftBarButtonItem = actionButton;
     
     UIBarButtonItem *alertButton = [[UIBarButtonItem alloc] initWithTitle:@"Alert!"
@@ -80,47 +73,199 @@ static NSString * const kCellReuseIdentifier = @"cellReuseIdentifier";
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Action sheet & alert view
+#pragma mark - Present the action sheet
 
+/*
+ * Determine which action sheet we should present to the user, and do so.
+ */
 - (void)presentActionSheet
 {
-    NSString *title = @"Do something to this list.";
-    ESSButtonItem *cancelButtonItem = [ESSButtonItem itemWithTitle:@"Cancel"];
-    ESSButtonItem *destructiveButtonItem = [ESSButtonItem itemWithTitle:@"Delete Everything" block:^{
+    if ([UIAlertController class]) {
+        [self presentiOS8ActionSheet];
+    } else {
+        [self presentESSActionSheet];
+    }
+}
+
+/*
+ * This code will be run on iOS 7 and earlier, where UIAlertController is
+ * unavailable.
+ */
+- (void)presentESSActionSheet
+{
+    // First, create the action sheet:
+    ESSBlockActionSheet *actionSheet = [ESSBlockActionSheet actionSheetWithTitle:@"You're on iOS 7 or earlier. Edit the list?"];
+    
+    // Now, let's create a bunch of actions:
+    ESSAlertAction *cancelAction = [ESSAlertAction actionWithTitle:@"Cancel" block:nil];
+    ESSAlertAction *destructiveAction = [ESSAlertAction actionWithTitle:@"Delete Everything" block:^
+    {
         self.objects = [NSMutableArray array];
         [self.tableView reloadData];
     }];
-    ESSButtonItem *foxButtonItem = [ESSButtonItem itemWithTitle:@"Add \"Fox\" Row" block:^{
+    ESSAlertAction *foxAction = [ESSAlertAction actionWithTitle:@"Add \"Fox\" Row" block:^
+    {
         [self.objects addObject:@"The quick brown fox jumps over the lazy dog."];
         [self.tableView reloadData];
     }];
-    ESSButtonItem *sphinxButtonItem = [ESSButtonItem itemWithTitle:@"Add \"Sphinx\" Row" block:^{
+    ESSAlertAction *sphinxAction = [ESSAlertAction actionWithTitle:@"Add \"Sphinx\" Row" block:^
+    {
         [self.objects addObject:@"Sphinx of black quartz, judge my vow!"];
         [self.tableView reloadData];
     }];
     
-    ESSBlockActionSheet *actionSheet = [[ESSBlockActionSheet alloc] initWithTitle:title
-                                                                 cancelButtonItem:cancelButtonItem
-                                                            destructiveButtonItem:destructiveButtonItem
-                                                                 otherButtonItems:@[foxButtonItem, sphinxButtonItem]];
-    [actionSheet showInView:self.view];
+    // Add the actions to the action sheet:
+    [actionSheet addCancelAction:cancelAction];
+    [actionSheet addDestructiveAction:destructiveAction];
+    [actionSheet addAction:foxAction];
+    [actionSheet addAction:sphinxAction];
+    
+    // Finally, present the action sheet:
+    [actionSheet showInView:self.view]; // iPhone
+    /*
+     [actionSheet showFromRect:self.view.bounds // iPad
+     inView:self.view
+     animated:YES];
+     */
 }
 
-- (void)presentAlertView
+/*
+ * This code will be run on iOS 8 and later, where UIAlertController is
+ * available.
+ */
+- (void)presentiOS8ActionSheet
 {
-    NSString *title = @"Add \"lorem\" row?";
-    NSString *message = @"This will add a line of pseudo-Latin to the list.";
-    ESSButtonItem *cancelButtonItem = [ESSButtonItem itemWithTitle:@"Cancel"];
-    ESSButtonItem *acceptButtonItem = [ESSButtonItem itemWithTitle:@"Add Row" block:^{
-        [self.objects addObject:@"Lorem ipsum dolor sit amet, consectetur adipisicing elit..."];
+    // First, create the action sheet:
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"You're on iOS 8 or later. Edit the list?"
+                                                                         message:@"On iOS 8, action sheets can have messages."
+                                                                  preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    // Now, let's create a bunch of actions:
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:nil];
+    UIAlertAction *destructiveAction = [UIAlertAction actionWithTitle:@"Delete Everything"
+                                                                style:UIAlertActionStyleDestructive
+                                                              handler:^(UIAlertAction *action)
+    {
+        self.objects = [NSMutableArray array];
+        [self.tableView reloadData];
+    }];
+    UIAlertAction *foxAction = [UIAlertAction actionWithTitle:@"Add \"Fox\" Row"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction *action)
+    {
+        [self.objects addObject:@"The quick brown fox jumps over the lazy dog."];
+        [self.tableView reloadData];
+    }];
+    UIAlertAction *sphinxAction = [UIAlertAction actionWithTitle:@"Add \"Sphinx\" Row"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction *action)
+    {
+        [self.objects addObject:@"Sphinx of black quartz, judge my vow!"];
         [self.tableView reloadData];
     }];
     
-    ESSBlockAlertView *alertView = [[ESSBlockAlertView alloc] initWithTitle:title
-                                                                    message:message
-                                                           cancelButtonItem:cancelButtonItem
-                                                           otherButtonItems:@[acceptButtonItem]];
+    // Add the actions to the action sheet:
+    [actionSheet addAction:cancelAction];
+    [actionSheet addAction:destructiveAction];
+    [actionSheet addAction:foxAction];
+    [actionSheet addAction:sphinxAction];
+    
+    // Finally, present the action sheet:
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
+
+#pragma mark - Present the alert view
+
+/*
+ * Determine which alert view we should present to the user, and do so.
+ */
+- (void)presentAlertView
+{
+    if ([UIAlertController class]) {
+        [self presentiOS8AlertView];
+    } else {
+        [self presentESSAlertView];
+    }
+}
+
+/*
+ * This code will be run on iOS 7 and earlier, where UIAlertController is
+ * unavailable.
+ */
+- (void)presentESSAlertView
+{
+    // First, create the action sheet:
+    ESSBlockAlertView *alertView = [ESSBlockAlertView alertViewWithTitle:@"You're on iOS 7 or earlier."
+                                                                 message:@"The text you enter below will be added to the list."];
+    
+    // We'll add a text field to this one:
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput; // plain text field
+    // alertView.alertViewStyle = UIAlertViewStyleSecureTextInput; // password field
+    // alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput; // username and password fields
+    
+    // Now, let's create a few actions:
+    ESSAlertAction *cancelAction = [ESSAlertAction actionWithTitle:@"Cancel" block:nil];
+    ESSAlertAction *addAction = [ESSAlertAction actionWithTitle:@"Add" block:^
+    {
+        // Get the text the user entered:
+        UITextField *textField = [alertView textFieldAtIndex:0];
+        NSString *text = textField.text;
+                                     
+        // Add the text to the list:
+        [self.objects addObject:text];
+        [self.tableView reloadData];
+    }];
+    
+    // Add the actions to the action sheet:
+    [alertView addCancelAction:cancelAction];
+    [alertView addAction:addAction];
+    
+    // Finally, present the action sheet:
     [alertView show];
+}
+
+/*
+ * This code will be run on iOS 8 and later, where UIAlertController is
+ * available.
+ */
+- (void)presentiOS8AlertView
+{
+    // First, create the action sheet:
+    UIAlertController *alertView = [UIAlertController alertControllerWithTitle:@"You're on iOS 8 or later."
+                                                                       message:@"The text you enter below will be added to the list. (See the red button? UIAlertAction alert views can have destructive actions.)"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+    
+    // We'll add a text field to this one:
+    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        // You can set text field properties here, like:
+        // textField.secureTextEntry = YES; // make it a password field
+    }];
+    
+    // Now, let's create a few actions:
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:nil];
+    UIAlertAction *addAction = [UIAlertAction actionWithTitle:@"Add"
+                                                        style:UIAlertActionStyleDestructive
+                                                      handler:^(UIAlertAction *action)
+    {
+        // Get the text the user entered:
+        UITextField *textField = alertView.textFields[0];
+        NSString *text = textField.text;
+        
+        // Add the text to the list:
+        [self.objects addObject:text];
+        [self.tableView reloadData];
+    }];
+    
+    // Add the actions to the action sheet:
+    [alertView addAction:cancelAction];
+    [alertView addAction:addAction];
+    
+    // Finally, present the action sheet:
+    [self presentViewController:alertView animated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
@@ -140,59 +285,10 @@ static NSString * const kCellReuseIdentifier = @"cellReuseIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellReuseIdentifier forIndexPath:indexPath];
-    
+
     cell.textLabel.text = self.objects[indexPath.row];
     
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

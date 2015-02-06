@@ -4,7 +4,7 @@
 // 
 // Created by Erik Strottmann on 6/29/14.
 // 
-// Copyright (c) 2014 Erik Strottmann
+// Copyright (c) 2014-2015 Erik Strottmann
 // Licensed under the MIT License:
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,34 +26,29 @@
 // SOFTWARE.
 
 #import <UIKit/UIKit.h>
-#import "ESSButtonItem.h"
+#import "ESSAlertAction.h"
 
 @interface ESSBlockAlertView : UIAlertView <UIAlertViewDelegate>
 
-/**
- * Initializes the alert view with an NSArray of other button items, as well as
- * the other specified parameters.
- */
-- (instancetype)initWithTitle:(NSString *)title
-                      message:(NSString *)message
-             cancelButtonItem:(ESSButtonItem *)cancelButtonItem
-             otherButtonItems:(NSArray *)otherButtonItems;
-/**
- * Initializes the alert view with a nil-terminated list of other button items,
- * as well as the other specified parameters.
- */
-- (instancetype)initWithTitle:(NSString *)title
-                      message:(NSString *)message
-             cancelButtonItem:(ESSButtonItem *)cancelButtonItem
-          otherButtonItemList:(ESSButtonItem *)firstOtherButtonItem, ... NS_REQUIRES_NIL_TERMINATION;
-
-- (void)addButtonWithItem:(ESSButtonItem *)item;
-- (void)addCancelButtonWithItem:(ESSButtonItem *)item;
+#pragma mark - Creating an alert view
 
 /**
- * Dismiss the alert view, calling the button item's block if the alert view
- * contains the button item.
+ * Creates and returns a new alert view with a title, a message, and no actions.
  */
-- (void)dismissWithClickedButtonItem:(ESSButtonItem *)buttonItem animated:(BOOL)animated;
++ (instancetype)alertViewWithTitle:(NSString *)title
+                           message:(NSString *)message;
+
+#pragma mark - Adding actions
+
+/**
+ * Adds an action with the default style.
+ */
+- (void)addAction:(ESSAlertAction *)action;
+/**
+ * Adds an action with a style that indicates the action cancels the operation
+ * and leaves things unchanged. An action sheet can only have one cancel item,
+ * so only the last cancel item added will be in the cancel style.
+ */
+- (void)addCancelAction:(ESSAlertAction *)action;
 
 @end

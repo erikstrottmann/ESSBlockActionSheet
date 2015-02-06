@@ -1,10 +1,10 @@
-//
-// ESSButtonItem.m
+// 
+// ESSAlertAction.h
 // ESSBlockActionSheet
 // 
 // Created by Erik Strottmann on 6/28/14.
 // 
-// Copyright (c) 2014 Erik Strottmann
+// Copyright (c) 2014-2015 Erik Strottmann
 // Licensed under the MIT License:
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,37 +25,20 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#import "ESSButtonItem.h"
+#import <Foundation/Foundation.h>
 
-@implementation ESSButtonItem
+@interface ESSAlertAction : NSObject
 
-#pragma mark - Initialization
+/** The text to use for the action's button's title. */
+@property (strong, nonatomic) NSString *title;
+/** A block that's executed when the user selects the action. */
+@property (copy, nonatomic) void (^block)();
 
-- (instancetype)initWithTitle:(NSString *)title block:(void (^)())block
-{
-    self = [super init];
-    if (self) {
-        self.title = title;
-        self.block = block;
-    }
-    return self;
-}
+/**
+ * Creates and returns a new action with the specified title and handler.
+ */
++ (instancetype)actionWithTitle:(NSString *)title
+                          block:(void (^)())block;
 
-- (instancetype)initWithTitle:(NSString *)title
-{
-    return [self initWithTitle:title block:nil];
-}
-
-#pragma mark - Factory methods
-
-+ (instancetype)itemWithTitle:(NSString *)title block:(void (^)())block
-{
-    return [[self alloc] initWithTitle:title block:block];
-}
-
-+ (instancetype)itemWithTitle:(NSString *)title
-{
-    return [self itemWithTitle:title block:nil];
-}
 
 @end

@@ -1,52 +1,87 @@
 ESSBlockActionSheet & ESSBlockAlertView
-===================
+===
 
-Subclasses of UIActionSheet and UIAlertView that execute blocks on button click, instead of delegate callbacks.
+`ESSBlockActionSheet` and `ESSBlockAlertView` bring the simplicity of [`UIAlertController`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAlertController_class/) to iOS 7 and earlier. They're subclasses of [`UIActionSheet`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIActionSheet_Class/index.html) and [`UIAlertView`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAlertView_Class/index.html), respectively, that replace their superclasses' messy delegate methods with simple, loosely coupled [blocks](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/WorkingwithBlocks/WorkingwithBlocks.html).
 
-`UIActionSheet` invites tightly coupled code. Its delegate method `actionSheet:clickedButtonAtIndex:` forces you to determine which action to perform based on the clicked button's index. If you change the button order, you have to change the delegate method, too.
+Using ESSBlockActionSheet
+---
 
-`ESSBlockActionSheet`'s initialization is much cleaner. You don't even have to implement `UIActionSheetDelegate`. First, create a few `ESSButtonItem`s:
+It's simple to create an action sheet and add some actions:
 
 ```
-ESSButtonItem *cancelButtonItem = [ESSButtonItem itemWithTitle:@"Cancel"];
+ESSBlockActionSheet *actionSheet = [ESSBlockActionSheet actionSheetWithTitle:@"Action!"];
 
-ESSButtonItem *anotherButtonItem = [ESSButtonItem itemWithTitle:@"Do Something" block:^{
+ESSAlertAction *anAction = [ESSAlertAction actionWithTitle:@"~Dance~" block:{
     // ...
-}];
+}
+ESSAlertAction *cancel = [ESSAlertAction actionWithTitle:@"Take a nap" block:nil];
+
+[actionSheet addAction:anAction];
+[actionSheet addCancelAction:cancel];
 ```
 
-Then:
+You'll present the action sheet differently depending on the platform:
 
 ```
-ESSBlockActionSheet *actionSheet = [[ESSBlockActionSheet alloc] initWithTitle:@"Action!"
-                                                             cancelButtonItem:cancelButtonItem
-                                                        destructiveButtonItem:nil
-                                                             otherButtonItems:@[anotherButtonItem, aThirdButtonItem]];
-[actionSheet showInView:self.view];
+if (iPhone) {
+    [actionSheet showInView:self.view];
+} else /* if (iPad) */ {
+    [actionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
+}
 ```
 
-The appropriate block will be called when a button is clicked. The cancel button block is also called when the action sheet is dismissed for another reason, like the user tapping any other view. Use `nil` for any property you don't want to include.
-
-You can also add buttons after initialization:
+Action sheets can have many actions, but only one cancel action and one destructive action.
 
 ```
-[actionSheet addButtonWithItem:anotherButtonItem];
-[actionSheet addCancelButtonWithItem:cancelButtonItem];
-[actionSheet addDestructiveButtonWithItem:destructiveButtonItem];
+[actionSheet addDestructiveAction:destroy];
+
+[actionSheet addAction:anotherAction];
+[actionSheet addAction:oneMoreAction];
 ```
 
-`ESSBlockAlertView`s work in much the same way, with `initWithTitle:message:cancelButtonItem:otherButtonItems:`.
+Using ESSBlockAlertView
+---
 
-If you prefer, both classes have init methods that use `nil`-terminated, comma-separated strings for `otherButtonItems` instead of `NSArray`s.
+Alert views are just as simple:
+
+```
+ESSBlockAlertView *alertView = [ESSBlockAlertView actionSheetWithTitle:@"Alert!" message:@"You need to do something!"];
+
+ESSAlertAction *anAction = [ESSAlertAction actionWithTitle:@"I'll sing!" block:{
+    // ...
+}
+ESSAlertAction *cancel = [ESSAlertAction actionWithTitle:@"Nah" block:nil];
+
+[alertView addAction:anAction];
+[alertView addCancelAction:cancel];
+```
+
+Alert views are presented the same way whether you're on an iPhone or an iPad:
+
+```
+[alertView show];
+```
+
+Alert views can have many actions, but only one cancel action (and no destructive actions).
+
+They can also use all of the text field styles defined in `UIAlertView`:
+
+```
+alertView.alertViewStyle = UIAlertViewStyleDefault; // no text fields
+alertView.alertViewStyle = UIAlertViewStylePlainTextInput; // plain text field
+alertView.alertViewStyle = UIAlertViewStyleSecureTextInput; // password field
+alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput; // username and password fields
+```
 
 Requirements
 ---
-- ARC
+- Support for [blocks](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/WorkingwithBlocks/WorkingwithBlocks.html) (i.e. iOS 4.0 or greater)
+- [Automatic Reference Counting (ARC)](https://developer.apple.com/library/ios/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html) enabled
 
-Note: Blocks and ARC were both introduced in iOS 4, but I haven't tested this on any SDK version older than 7.0. Create an [issue](https://github.com/erikstrottmann/ESSBlockActionSheet/issues) to let me know if you have success or problems with earlier SDK versions.
+Note: Blocks and ARC were both introduced in iOS 4.0, but I haven't tested this on any SDK version older than 7.0. Create an [issue](https://github.com/erikstrottmann/ESSBlockActionSheet/issues) to let me know if you have success or problems with earlier SDK versions.
 
 License
 ---
-Copyright (c) 2014 Erik Strottmann
+Copyright (c) 2014-2015 Erik Strottmann
 
-Licensed under the MIT License. See [the license file](LICENSE) for more details.
+Licensed under the MIT License. See the [license file](LICENSE) for more details.

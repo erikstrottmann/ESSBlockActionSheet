@@ -4,7 +4,7 @@
 // 
 // Created by Erik Strottmann on 6/27/14.
 // 
-// Copyright (c) 2014 Erik Strottmann
+// Copyright (c) 2014-2015 Erik Strottmann
 // Licensed under the MIT License:
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,107 +29,56 @@
 
 @interface ESSBlockActionSheet ()
 
-@property (nonatomic) NSMutableArray *buttonActionItems;
+@property (nonatomic) NSMutableArray *actions;
 
 @end
 
 
 @implementation ESSBlockActionSheet
 
-#pragma mark - Initialization
+#pragma mark - Creating an action sheet
 
-- (instancetype)initWithTitle:(NSString *)title
-             cancelButtonItem:(ESSButtonItem *)cancelButtonItem
-        destructiveButtonItem:(ESSButtonItem *)destructiveButtonItem
-             otherButtonItems:(NSArray *)otherButtonItems
++ (instancetype)actionSheetWithTitle:(NSString *)title
 {
-    self = [super initWithTitle:title
-                       delegate:self
-              cancelButtonTitle:nil
-         destructiveButtonTitle:nil
-              otherButtonTitles:nil];
+    ESSBlockActionSheet *actionSheet = [[super alloc] initWithTitle:title
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                             destructiveButtonTitle:nil
+                                                  otherButtonTitles:nil];
+    actionSheet.delegate = actionSheet;
+    actionSheet.actions = [NSMutableArray array];
     
-    if (self) {
-        self.buttonActionItems = [NSMutableArray array];
-        
-        self.buttonActionItems = [NSMutableArray array];
-        
-        if (destructiveButtonItem) {
-            [self addDestructiveButtonWithItem:destructiveButtonItem];
-        }
-        
-        for (ESSButtonItem *otherButtonItem in otherButtonItems) {
-            [self addButtonWithItem:otherButtonItem];
-        }
-        
-        if (cancelButtonItem) {
-            [self addCancelButtonWithItem:cancelButtonItem];
-        }
-    }
-    
-    return self;
+    return actionSheet;
 }
 
-- (instancetype)initWithTitle:(NSString *)title
-             cancelButtonItem:(ESSButtonItem *)cancelButtonItem
-        destructiveButtonItem:(ESSButtonItem *)destructiveButtonItem
-             otherButtonItemList:(ESSButtonItem *)firstOtherButtonItem, ...
+#pragma mark - Adding actions
+
+- (void)addAction:(ESSAlertAction *)action
 {
-    NSMutableArray *otherButtonItemArray = [NSMutableArray array];
-    
-    va_list otherButtonItemList;
-    va_start(otherButtonItemList, firstOtherButtonItem);
-    for (ESSButtonItem *otherButtonItem = firstOtherButtonItem;
-         otherButtonItem != nil;
-         otherButtonItem = va_arg(otherButtonItemList, ESSButtonItem *)) {
-        
-        [otherButtonItemArray addObject:otherButtonItem];
-    }
-    va_end(otherButtonItemList);
-    
-    return [self initWithTitle:title
-              cancelButtonItem:cancelButtonItem
-         destructiveButtonItem:destructiveButtonItem
-              otherButtonItems:otherButtonItemArray];
+    [self.actions addObject:action];
+    [self addButtonWithTitle:action.title];
 }
 
-#pragma mark - Adding button items
-
-- (void)addButtonWithItem:(ESSButtonItem *)item
+- (void)addCancelAction:(ESSAlertAction *)item
 {
-    [self.buttonActionItems addObject:item];
-    [self addButtonWithTitle:item.title];
-}
-
-- (void)addCancelButtonWithItem:(ESSButtonItem *)item
-{
-    [self addButtonWithItem:item];
+    [self addAction:item];
     self.cancelButtonIndex = self.numberOfButtons - 1;
 }
 
-- (void)addDestructiveButtonWithItem:(ESSButtonItem *)item
+- (void)addDestructiveAction:(ESSAlertAction *)item
 {
-    [self addButtonWithItem:item];
+    [self addAction:item];
     self.destructiveButtonIndex = self.numberOfButtons - 1;
 }
 
-#pragma mark - Dismissing the action sheet
-
-- (void)dismissWithClickedButtonItem:(ESSButtonItem *)buttonItem animated:(BOOL)animated
-{
-    if ([self.buttonActionItems containsObject:buttonItem]) {
-        [self dismissWithClickedButtonIndex:[self.buttonActionItems indexOfObject:buttonItem] animated:animated];
-    }
-}
-
-#pragma mark - UIActionSheetDelegate
+#pragma mark - Handling button taps
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex >= 0 && buttonIndex < self.buttonActionItems.count) {
-        ESSButtonItem *buttonActionItem = self.buttonActionItems[buttonIndex];
-        if (buttonActionItem.block) {
-            buttonActionItem.block();
+    if (buttonIndex >= 0 && buttonIndex < self.actions.count) {
+        ESSAlertAction *action = self.actions[buttonIndex];
+        if (action.block) {
+            action.block();
         }
     }
 }
