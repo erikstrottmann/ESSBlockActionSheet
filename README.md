@@ -20,12 +20,13 @@ ESSAlertAction *cancel = [ESSAlertAction actionWithTitle:@"Take a nap" block:nil
 [actionSheet addCancelAction:cancel];
 ```
 
-You'll present the action sheet differently depending on the platform:
+You'll present the action sheet differently depending on the device you're running on:
 
 ```
-if (iPhone) {
+BOOL onPhone = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
+if (onPhone) {  // on iPhone
     [actionSheet showInView:self.view];
-} else /* if (iPad) */ {
+} else { // on iPad
     [actionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }
 ```
