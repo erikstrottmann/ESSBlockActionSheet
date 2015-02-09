@@ -13,7 +13,7 @@ ESSBlockActionSheet *actionSheet = [ESSBlockActionSheet actionSheetWithTitle:@"A
 
 ESSAlertAction *anAction = [ESSAlertAction actionWithTitle:@"~Dance~" block:{
     // ...
-}
+}];
 ESSAlertAction *cancel = [ESSAlertAction actionWithTitle:@"Take a nap" block:nil];
 
 [actionSheet addAction:anAction];
@@ -50,7 +50,7 @@ ESSBlockAlertView *alertView = [ESSBlockAlertView actionSheetWithTitle:@"Alert!"
 
 ESSAlertAction *anAction = [ESSAlertAction actionWithTitle:@"I'll sing!" block:{
     // ...
-}
+}];
 ESSAlertAction *cancel = [ESSAlertAction actionWithTitle:@"Nah" block:nil];
 
 [alertView addAction:anAction];
