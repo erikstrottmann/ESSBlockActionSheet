@@ -1,12 +1,12 @@
-ESSBlockActionSheet & ESSBlockAlertView
+ESSBlockDialogs
 ===
 
-`ESSBlockActionSheet` and `ESSBlockAlertView` bring the simplicity of [`UIAlertController`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAlertController_class/) to iOS 7 and earlier. They're subclasses of [`UIActionSheet`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIActionSheet_Class/index.html) and [`UIAlertView`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAlertView_Class/index.html), respectively, that replace their superclasses' messy delegate methods with simple, loosely coupled [blocks](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/WorkingwithBlocks/WorkingwithBlocks.html).
+`ESSBlockDialogs` bring the simplicity of [`UIAlertController`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAlertController_class/) to iOS 7 and earlier. They're subclasses of [`UIActionSheet`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIActionSheet_Class/index.html) and [`UIAlertView`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAlertView_Class/index.html), respectively, that replace their superclasses' messy delegate methods with simple, loosely coupled [blocks](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/WorkingwithBlocks/WorkingwithBlocks.html).
 
 Using ESSBlockActionSheet
 ---
 
-It's simple to create an action sheet and add some actions:
+It's easy to create an action sheet and add some actions:
 
 ```
 ESSBlockActionSheet *actionSheet = [ESSBlockActionSheet actionSheetWithTitle:@"Action!"];
@@ -24,10 +24,14 @@ You'll present the action sheet differently depending on the device you're runni
 
 ```
 BOOL onPhone = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
-if (onPhone) { // on iPhone
+if (onPhone) {
     [actionSheet showInView:self.view];
-} else { // on iPad
-    [actionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
+} else {
+	// EITHER:
+	[actionSheet showFromBarButtonItem:barButtonItem animated:YES];
+	
+	// OR:
+    [actionSheet showFromRect:button.bounds inView:self.view animated:YES];
 }
 ```
 

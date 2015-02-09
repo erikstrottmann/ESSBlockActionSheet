@@ -1,6 +1,6 @@
 // 
-// main.m
-// ESSBlockActionSheetDemo
+// ESSBlockDemoTableViewController.h
+// ESSBlockDialogsDemo
 // 
 // Created by Erik Strottmann on 6/28/14.
 // 
@@ -26,10 +26,7 @@
 // SOFTWARE.
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
 
-int main(int argc, char * argv[]) {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
-    }
-}
+@interface ESSBlockDemoTableViewController : UITableViewController
+
+@end

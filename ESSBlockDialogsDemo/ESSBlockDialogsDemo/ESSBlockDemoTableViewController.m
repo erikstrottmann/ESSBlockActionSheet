@@ -1,6 +1,6 @@
 // 
 // ESSBlockDemoTableViewController.m
-// ESSBlockActionSheetDemo
+// ESSBlockDialogsDemo
 // 
 // Created by Erik Strottmann on 6/28/14.
 //  
@@ -125,7 +125,7 @@ static NSString * const kCellReuseIdentifier = @"cellReuseIdentifier";
     if (onPhone) { // on iPhone
         [actionSheet showInView:self.view];
     } else { // on iPad
-        [actionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
+        [actionSheet showFromBarButtonItem:self.navigationItem.leftBarButtonItem animated:YES];
     }
 }
 

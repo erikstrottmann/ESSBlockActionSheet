@@ -1,6 +1,6 @@
 // 
 // ESSAlertAction.h
-// ESSBlockActionSheet
+// ESSBlockDialogs
 // 
 // Created by Erik Strottmann on 6/28/14.
 // 

@@ -1,6 +1,6 @@
 // 
 // AppDelegate.m
-// ESSBlockActionSheetDemo
+// ESSBlockDialogsDemo
 // 
 // Created by Erik Strottmann on 6/28/14.
 // 

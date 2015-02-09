@@ -1,6 +1,6 @@
 // 
 // ESSBlockActionSheet.h
-// ESSBlockActionSheet
+// ESSBlockDialogs
 // 
 // Created by Erik Strottmann on 6/27/14.
 // 

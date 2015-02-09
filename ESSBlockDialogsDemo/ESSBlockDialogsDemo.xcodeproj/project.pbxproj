@@ -22,7 +22,7 @@
 		BB1F4944195F43CA00711BF0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BB1F4945195F43CA00711BF0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BB1F4947195F43CA00711BF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BB92F1E819634FAC00340736 /* ESSBlockActionSheetDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESSBlockActionSheetDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB92F1E819634FAC00340736 /* ESSBlockDialogsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESSBlockDialogsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBC26EC1960D29C008F7048 /* ESSBlockDemoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSBlockDemoTableViewController.h; sourceTree = "<group>"; };
 		BBBC26ED1960D29C008F7048 /* ESSBlockDemoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSBlockDemoTableViewController.m; sourceTree = "<group>"; };
 		BBF4B11519610552005798E2 /* ESSBlockActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSBlockActionSheet.h; sourceTree = "<group>"; };
@@ -49,23 +49,23 @@
 		BB1F4934195F43CA00711BF0 = {
 			isa = PBXGroup;
 			children = (
-				BBF4B11419610536005798E2 /* ESSBlockActionSheet */,
-				BB1F493F195F43CA00711BF0 /* ESSBlockActionSheetDemo */,
+				BBF4B11419610536005798E2 /* ESSBlockDialogs */,
+				BB1F493F195F43CA00711BF0 /* ESSBlockDialogsDemo */,
 			);
 			sourceTree = "<group>";
 		};
-		BB1F493F195F43CA00711BF0 /* ESSBlockActionSheetDemo */ = {
+		BB1F493F195F43CA00711BF0 /* ESSBlockDialogsDemo */ = {
 			isa = PBXGroup;
 			children = (
 				BB1F4944195F43CA00711BF0 /* AppDelegate.h */,
 				BB1F4945195F43CA00711BF0 /* AppDelegate.m */,
 				BBBC26EC1960D29C008F7048 /* ESSBlockDemoTableViewController.h */,
 				BBBC26ED1960D29C008F7048 /* ESSBlockDemoTableViewController.m */,
-				BB1F4947195F43CA00711BF0 /* Images.xcassets */,
 				BB1F4940195F43CA00711BF0 /* Supporting Files */,
+				BB1F4947195F43CA00711BF0 /* Images.xcassets */,
 				BB92F1E919634FB200340736 /* Products */,
 			);
-			path = ESSBlockActionSheetDemo;
+			path = ESSBlockDialogsDemo;
 			sourceTree = "<group>";
 		};
 		BB1F4940195F43CA00711BF0 /* Supporting Files */ = {
@@ -80,13 +80,13 @@
 		BB92F1E919634FB200340736 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BB92F1E819634FAC00340736 /* ESSBlockActionSheetDemo.app */,
+				BB92F1E819634FAC00340736 /* ESSBlockDialogsDemo.app */,
 			);
 			name = Products;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		BBF4B11419610536005798E2 /* ESSBlockActionSheet */ = {
+		BBF4B11419610536005798E2 /* ESSBlockDialogs */ = {
 			isa = PBXGroup;
 			children = (
 				BBF4B11519610552005798E2 /* ESSBlockActionSheet.h */,
@@ -98,16 +98,16 @@
 				BBF4B11B19610552005798E2 /* LICENSE */,
 				BBF4B11C19610552005798E2 /* README.md */,
 			);
-			name = ESSBlockActionSheet;
+			name = ESSBlockDialogs;
 			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BB1F493C195F43CA00711BF0 /* ESSBlockActionSheetDemo */ = {
+		BB1F493C195F43CA00711BF0 /* ESSBlockDialogsDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BB1F4957195F43CA00711BF0 /* Build configuration list for PBXNativeTarget "ESSBlockActionSheetDemo" */;
+			buildConfigurationList = BB1F4957195F43CA00711BF0 /* Build configuration list for PBXNativeTarget "ESSBlockDialogsDemo" */;
 			buildPhases = (
 				BB1F4939195F43CA00711BF0 /* Sources */,
 				BB1F493A195F43CA00711BF0 /* Frameworks */,
@@ -117,9 +117,9 @@
 			);
 			dependencies = (
 			);
-			name = ESSBlockActionSheetDemo;
+			name = ESSBlockDialogsDemo;
 			productName = ESSBlockActionSheetDemo;
-			productReference = BB92F1E819634FAC00340736 /* ESSBlockActionSheetDemo.app */;
+			productReference = BB92F1E819634FAC00340736 /* ESSBlockDialogsDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -136,7 +136,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BB1F4938195F43CA00711BF0 /* Build configuration list for PBXProject "ESSBlockActionSheetDemo" */;
+			buildConfigurationList = BB1F4938195F43CA00711BF0 /* Build configuration list for PBXProject "ESSBlockDialogsDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -148,7 +148,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BB1F493C195F43CA00711BF0 /* ESSBlockActionSheetDemo */,
+				BB1F493C195F43CA00711BF0 /* ESSBlockDialogsDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -264,7 +264,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				INFOPLIST_FILE = ESSBlockActionSheetDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ESSBlockDialogsDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -277,7 +277,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				INFOPLIST_FILE = ESSBlockActionSheetDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ESSBlockDialogsDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -288,7 +288,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BB1F4938195F43CA00711BF0 /* Build configuration list for PBXProject "ESSBlockActionSheetDemo" */ = {
+		BB1F4938195F43CA00711BF0 /* Build configuration list for PBXProject "ESSBlockDialogsDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BB1F4955195F43CA00711BF0 /* Debug */,
@@ -297,7 +297,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BB1F4957195F43CA00711BF0 /* Build configuration list for PBXNativeTarget "ESSBlockActionSheetDemo" */ = {
+		BB1F4957195F43CA00711BF0 /* Build configuration list for PBXNativeTarget "ESSBlockDialogsDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BB1F4958195F43CA00711BF0 /* Debug */,

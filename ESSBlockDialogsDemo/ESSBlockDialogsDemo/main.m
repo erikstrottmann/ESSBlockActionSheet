@@ -1,6 +1,6 @@
 // 
-// AppDelegate.h
-// ESSBlockActionSheetDemo
+// main.m
+// ESSBlockDialogsDemo
 // 
 // Created by Erik Strottmann on 6/28/14.
 // 
@@ -26,11 +26,10 @@
 // SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
-
-@end
-
+int main(int argc, char * argv[]) {
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    }
+}
