@@ -40,15 +40,23 @@
 
 + (instancetype)actionSheetWithTitle:(NSString *)title
 {
-    ESSBlockActionSheet *actionSheet = [[super alloc] initWithTitle:title
-                                                           delegate:nil
-                                                  cancelButtonTitle:nil
-                                             destructiveButtonTitle:nil
-                                                  otherButtonTitles:nil];
-    actionSheet.delegate = actionSheet;
+    ESSBlockActionSheet *actionSheet = [[self alloc] init];
+    
+    actionSheet.title = title;
     actionSheet.actions = [NSMutableArray array];
     
     return actionSheet;
+}
+
+- (instancetype)init
+{
+    self = [super initWithTitle:nil
+                       delegate:self
+              cancelButtonTitle:nil
+         destructiveButtonTitle:nil
+              otherButtonTitles: nil];
+    
+    return self;
 }
 
 #pragma mark - Adding actions

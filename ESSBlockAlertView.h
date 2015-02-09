@@ -38,6 +38,11 @@
 + (instancetype)alertViewWithTitle:(NSString *)title
                            message:(NSString *)message;
 
+/**
+ * Initializes a new alert view with no title or actions.
+ */
+- (instancetype)init;
+
 #pragma mark - Adding actions
 
 /**

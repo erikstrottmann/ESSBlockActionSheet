@@ -41,15 +41,24 @@
 + (instancetype)alertViewWithTitle:(NSString *)title
                            message:(NSString *)message
 {
-    ESSBlockAlertView *alertView = [[super alloc] initWithTitle:title
-                                                        message:message
-                                                       delegate:nil
-                                              cancelButtonTitle:nil
-                                              otherButtonTitles:nil];
-    alertView.delegate = alertView;
+    ESSBlockAlertView *alertView = [[self alloc] init];
+    
+    alertView.title = title;
+    alertView.message = message;
     alertView.actions = [NSMutableArray array];
     
     return alertView;
+}
+
+- (instancetype)init
+{
+    self = [super initWithTitle:nil
+                        message:nil
+                       delegate:self
+              cancelButtonTitle:nil
+              otherButtonTitles:nil];
+    
+    return self;
 }
 
 #pragma mark - Adding actions

@@ -37,6 +37,11 @@
  */
 + (instancetype)actionSheetWithTitle:(NSString *)title;
 
+/**
+ * Initializes a new action sheet with no title or actions.
+ */
+- (instancetype)init;
+
 #pragma mark - Adding actions
 
 /**
